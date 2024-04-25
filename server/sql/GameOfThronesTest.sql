@@ -3,7 +3,7 @@ create database game_of_thrones_test;
 
 use game_of_thrones_test;
 
-create table CharacterModelTest (
+create table CharacterModel (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `firstName` varchar(255),
   `lastName` varchar(255),
