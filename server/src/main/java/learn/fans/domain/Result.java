@@ -7,6 +7,7 @@ public class Result<T> {
 
     private final ArrayList<String> messages = new ArrayList<>();
     private final List<String> errorMessages = new ArrayList<>();
+    private ResultType status = ResultType.SUCCESS;
     private ResultType type = ResultType.SUCCESS;
     private T payload;
 
@@ -42,5 +43,9 @@ public class Result<T> {
     public void addErrorMessage(String message, ResultType type) {
         errorMessages.add(message);
         this.type = type;
+    }
+
+    public ResultType getStatus() {
+        return status;
     }
 }

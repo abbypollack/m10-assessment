@@ -54,8 +54,8 @@ public class GOTCharacterService {
 
     }
 
-    public Result<Void> deleteById(int characterId) {
-        Result<Void> result = new Result<>();
+    public Result<GOTCharacter> deleteById(int characterId) {
+        Result<GOTCharacter> result = new Result<>();
         if (!repository.deleteById(characterId)) {
             result.addErrorMessage("Character ID not found.", ResultType.NOT_FOUND);
         }
