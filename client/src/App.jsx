@@ -5,6 +5,9 @@ import NotFound from "./components/NotFound";
 import Nav from "./Nav";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import CharacterCards from './components/CharacterCards';
+import CharacterForm from "./components/CharacterForm";
+import ConfirmDelete from "./components/ConfirmDelete.jsx"
+
 
 function App() {
 
@@ -16,6 +19,9 @@ function App() {
           <Route path={'/'} element={<Landing/>}></Route>
           <Route path={'/characters'} element={<CharacterCards/>}></Route>
           <Route path={'/*'} element={<NotFound/>}></Route>
+          <Route path={'/characters/add'} element={<CharacterForm/>}></Route>
+          <Route path={'/characters/edit/:characterId'} element={<CharacterForm/>}></Route>
+          <Route path={'/characters/delete/:characterId'} element={<ConfirmDelete/>}></Route>
         </Routes>
     
     </Router>

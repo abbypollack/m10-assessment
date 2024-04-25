@@ -41,7 +41,7 @@ export async function edit(character) {
         },
         body: JSON.stringify(character)
     }
-    const response = await fetch(`${apiUrl}/${character.characterId}`, config)
+    const response = await fetch(`${apiUrl}/${character.id}`, config)
     if (response.ok) {
         return;
     }
@@ -51,10 +51,10 @@ export async function edit(character) {
 }
 
 export async function save(character) {
-    return character.characterId ? update(character) : add(character);
+    return character.id ? edit(character) : add(character);
 }
 
-export async function deleteAgency(characterId){
+export async function deleteCharacter(characterId){
     const config = {
         method: "DELETE"
     }
