@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:8080/api/got/character";
+const apiUrl = "http://localhost:8080/got-character";
 
 export async function findAll() {
     const response = await fetch(apiUrl);
@@ -48,6 +48,10 @@ export async function edit(character) {
 
     const errors = await response.json();
     return Promise.reject(errors);
+}
+
+export async function save(character) {
+    return character.characterId ? update(character) : add(character);
 }
 
 export async function deleteAgency(characterId){
