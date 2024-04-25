@@ -2,9 +2,11 @@ package learn.fans.domain;
 
 import learn.fans.data.GOTCharacterRepository;
 import learn.fans.models.GOTCharacter;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class GOTCharacterService {
 
     private final GOTCharacterRepository repository;
