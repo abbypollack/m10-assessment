@@ -19,12 +19,12 @@ public class GOTCharacterRepository {
     }
 
     public List<GOTCharacter> findAll() {
-        final String sql = "select id, firstName, lastName, fullName, title, family, image, imageUrl from CharacterModel;";
+        final String sql = "select id, firstName, lastName, fullName, title, family, image, imageUrl, likes, dislikes from CharacterModel;";
         return jdbctemplate.query(sql, new GOTCharacterMapper());
     }
 
     public GOTCharacter findById(int id) {
-        final String sql = "select id, firstName, lastName, fullName, title, family, image, imageUrl from CharacterModel where id = ?;";
+        final String sql = "select id, firstName, lastName, fullName, title, family, image, imageUrl, likes, dislikes from CharacterModel where id = ?;";
         return jdbctemplate.query(sql, new GOTCharacterMapper(), id).stream().findFirst().orElse(null);
     }
 
@@ -44,8 +44,8 @@ public class GOTCharacterRepository {
     }
 
     public boolean update(GOTCharacter character) {
-        final String sql = "update CharacterModel set firstName = ?, lastName = ?, fullName = ?, title = ?, family = ?, image = ?, imageUrl = ? where id = ?;";
-        return jdbctemplate.update(sql, character.getFirstName(), character.getLastName(), character.getFullName(), character.getTitle(), character.getFamily(), character.getImage(), character.getImageUrl(), character.getId()) > 0;
+        final String sql = "update CharacterModel set firstName = ?, lastName = ?, fullName = ?, title = ?, family = ?, image = ?, imageUrl = ?, likes = ?, dislikes = ? where id = ?;";
+        return jdbctemplate.update(sql, character.getFirstName(), character.getLastName(), character.getFullName(), character.getTitle(), character.getFamily(), character.getImage(), character.getImageUrl(), character.getId(), character.getLikes(), character.getDislikes()) > 0;
     }
 
     public boolean deleteById(int id) {

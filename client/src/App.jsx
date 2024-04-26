@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import Landing from "./components/Landing";
 import NotFound from "./components/NotFound";
@@ -6,7 +5,9 @@ import Nav from "./Nav";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import CharacterCards from './components/CharacterCards';
 import CharacterForm from "./components/CharacterForm";
-import ConfirmDelete from "./components/ConfirmDelete.jsx"
+import ConfirmDelete from "./components/ConfirmDelete.jsx";
+import './App.css';
+
 
 
 function App() {

@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
 import like from "../assets/like-button.svg";
 import dislike from "../assets/dislike-button.svg";
+import { edit } from "../api/CharacterAPI";
+import { useState } from "react";
 
 function CharacterCard({ character }) {
+    //const [character, setCharacter] = useState(blankCharacter);
+    const [likeButton, setLikeButton] = useState(false);
+
+    function handleLike(evt){
+        setLikeButton(true);
+        evt.preventDefault();
+        character.likes++;
+        edit(character);
+    }
+
     return (
         <div className="col">
             <div className="card h-100 bg-dark text-white">
@@ -18,8 +30,9 @@ function CharacterCard({ character }) {
                         <Link to={`/characters/edit/${character.id}`} className="btn btn-secondary">Edit</Link>
                     </div>
                     <div>
-                        <button className="btn btn-light me-2">
+                        <button className="btn btn-light me-2" onClick={handleLike} style={{backgroundColor: likeButton && "#000015"}}>
                             <img src={like} alt="Like" style={{ width: "20px" }} />
+                            {character.likes}
                         </button>
                         <button className="btn btn-light">
                             <img src={dislike} alt="Dislike" style={{ width: "20px" }} />

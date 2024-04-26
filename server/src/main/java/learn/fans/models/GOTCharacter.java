@@ -10,6 +10,8 @@ public class GOTCharacter {
     private String family;
     private String image;
     private String imageUrl;
+    private int likes;
+    private int dislikes;
 
     public GOTCharacter() {
     }
@@ -87,5 +89,23 @@ public class GOTCharacter {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+
+    public int getDislikes() {
+        return dislikes;
+    }
+
+    public void setDislikes(int dislikes) {
+        this.dislikes = dislikes;
     }
 }

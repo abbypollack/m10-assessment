@@ -11,7 +11,9 @@ create table CharacterModel (
   `title` varchar(255),
   `family` varchar(255),
   `image` varchar(255),
-  `imageUrl` varchar(255)
+  `imageUrl` varchar(255),
+  `likes` int default 0,
+  `dislikes` int default 0
 );
 
 delimiter //
@@ -27,6 +29,6 @@ begin
 		('Jon', 'Snow', 'Jon Snow', 'King of the North', 'House Stark', 'jon-snow.jpg', 'https://thronesapi.com/assets/images/jon-snow.jpg'),
 		('Arya', 'Stark', 'Arya Stark', 'No One', 'House Stark', 'arya-stark.jpg', 'https://thronesapi.com/assets/images/arya-stark.jpg'),
 		('Sansa', 'Stark', 'Sansa Stark', 'Lady of Winterfell', 'House Stark', 'sansa-stark.jpeg', 'https://thronesapi.com/assets/images/sansa-stark.jpeg');
-        
+       
 end //
 delimiter ;

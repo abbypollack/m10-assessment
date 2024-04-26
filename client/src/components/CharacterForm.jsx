@@ -61,9 +61,9 @@ function CharacterForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className="container mt-5">
+            <form onSubmit={handleSubmit} className="container mt-5 text-white custom-dark w-25">
                 <div className="row justify-content-center">
-                    <div className="col-md-6">
+                    <div className="">
                         <h1>{characterId ? "Edit Character" : "Add Character"}</h1>
                         <input type="hidden" value={character.characterId} />
 

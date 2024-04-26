@@ -11,7 +11,9 @@ CREATE TABLE `CharacterModel` (
   `title` varchar(255),
   `family` varchar(255),
   `image` varchar(255),
-  `imageUrl` varchar(255)
+  `imageUrl` varchar(255),
+  `likes` int default 0,
+  `dislikes` int default 0
 );
 
 INSERT INTO CharacterModel (firstName, lastName, fullName, title, family, image, imageUrl)

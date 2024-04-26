@@ -17,13 +17,6 @@
 }
 
 
-body {
-  background: url('./assets/landing.gif') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'CinzelDecorative', sans-serif;
-}
-
-
 .card {
   padding: 2em;
 }

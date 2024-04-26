@@ -20,6 +20,8 @@ public GOTCharacter mapRow(ResultSet resultSet, int i) throws SQLException {
         gotCharacter.setFamily(resultSet.getString("family"));
         gotCharacter.setImage(resultSet.getString("image"));
         gotCharacter.setImageUrl(resultSet.getString("imageUrl"));
+        gotCharacter.setLikes(resultSet.getInt("likes"));
+        gotCharacter.setDislikes(resultSet.getInt("dislikes"));
         return gotCharacter;
     }
 }
