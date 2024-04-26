@@ -2,35 +2,53 @@ import { Link } from "react-router-dom";
 import like from "../assets/like-button.svg";
 import dislike from "../assets/dislike-button.svg";
 import { edit } from "../api/CharacterAPI";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function CharacterCard({ character }) {
-    //const [character, setCharacter] = useState(blankCharacter);
+
     const [likeButton, setLikeButton] = useState(false);
     const [dislikeButton, setDislikeButton] = useState(false);
 
-    function handleLike(evt){
-        if(!likeButton) {
+    function handleLike(evt) {
+        if (!dislikeButton && !likeButton) {
             const updatedCharacter = { ...character, likes: character.likes + 1 };
             edit(updatedCharacter);
             character.likes++;
             setLikeButton(true);
+        } else if (dislikeButton && !likeButton) {
+            const updatedCharacter = { ...character, likes: character.likes + 1, dislikes: character.dislikes - 1 };
+            edit(updatedCharacter);
+            character.likes++;
+            character.dislikes--;
+            setLikeButton(true);
+            setDislikeButton(false);
+        } else if (likeButton) {
+            const updatedCharacter = { ...character, likes: character.likes - 1 };
+            edit(updatedCharacter);
+            character.likes--;
+            setLikeButton(false);
         }
     }
     function handleDislike(evt) {
-        if(!dislikeButton) {
+        if (!likeButton && !dislikeButton) {
             const updatedCharacter = { ...character, dislikes: character.dislikes + 1 };
             edit(updatedCharacter);
             character.dislikes++;
             setDislikeButton(true);
+        } else if (likeButton && !dislikeButton) {
+            const updatedCharacter = { ...character, dislikes: character.dislikes + 1, likes: character.likes - 1 };
+            edit(updatedCharacter);
+            character.dislikes++;
+            character.likes--;
+            setDislikeButton(true);
+            setLikeButton(false);
+        } else if (dislikeButton) {
+            const updatedCharacter = { ...character, dislikes: character.dislikes - 1 };
+            edit(updatedCharacter);
+            character.dislikes--;
+            setDislikeButton(false);
         }
     }
-
-    useEffect(() => {
-        if (likeButton) {
-            
-        }
-    }, [likeButton]);
 
     return (
         <div className="col">
@@ -47,13 +65,13 @@ function CharacterCard({ character }) {
                         <Link to={`/characters/edit/${character.id}`} className="btn btn-secondary">Edit</Link>
                     </div>
                     <div>
-                        <button className="btn btn-light me-2" onClick={handleLike} style={{backgroundColor: likeButton && "#000015"}}>
+                        <button className="btn btn-light me-2" onClick={handleLike} style={{ backgroundColor: likeButton && "#000015" }}>
                             <img src={like} alt="Like" style={{ width: "20px" }} />
-                            <span style={{color: likeButton && 'white'}}>{character.likes}</span>
+                            <span style={{ color: likeButton && 'white' }}>{character.likes}</span>
                         </button>
-                        <button className="btn btn-light" onClick={handleDislike} style={{backgroundColor: dislikeButton && "#000015"}}>
-                            <img src={dislike} alt="Dislike" style={{ width: "20px" }} /> 
-                            <span style={{color: dislikeButton && 'white'}}>{character.dislikes}</span>
+                        <button className="btn btn-light" onClick={handleDislike} style={{ backgroundColor: dislikeButton && "#000015" }}>
+                            <img src={dislike} alt="Dislike" style={{ width: "20px" }} />
+                            <span style={{ color: dislikeButton && 'white' }}>{character.dislikes}</span>
                         </button>
                     </div>
                 </div>
