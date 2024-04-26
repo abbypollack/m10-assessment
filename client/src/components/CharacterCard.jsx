@@ -2,18 +2,35 @@ import { Link } from "react-router-dom";
 import like from "../assets/like-button.svg";
 import dislike from "../assets/dislike-button.svg";
 import { edit } from "../api/CharacterAPI";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function CharacterCard({ character }) {
     //const [character, setCharacter] = useState(blankCharacter);
     const [likeButton, setLikeButton] = useState(false);
+    const [dislikeButton, setDislikeButton] = useState(false);
 
     function handleLike(evt){
-        setLikeButton(true);
-        evt.preventDefault();
-        character.likes++;
-        edit(character);
+        if(!likeButton) {
+            const updatedCharacter = { ...character, likes: character.likes + 1 };
+            edit(updatedCharacter);
+            character.likes++;
+            setLikeButton(true);
+        }
     }
+    function handleDislike(evt) {
+        if(!dislikeButton) {
+            const updatedCharacter = { ...character, dislikes: character.dislikes + 1 };
+            edit(updatedCharacter);
+            character.dislikes++;
+            setDislikeButton(true);
+        }
+    }
+
+    useEffect(() => {
+        if (likeButton) {
+            
+        }
+    }, [likeButton]);
 
     return (
         <div className="col">
@@ -32,10 +49,11 @@ function CharacterCard({ character }) {
                     <div>
                         <button className="btn btn-light me-2" onClick={handleLike} style={{backgroundColor: likeButton && "#000015"}}>
                             <img src={like} alt="Like" style={{ width: "20px" }} />
-                            {character.likes}
+                            <span style={{color: likeButton && 'white'}}>{character.likes}</span>
                         </button>
-                        <button className="btn btn-light">
-                            <img src={dislike} alt="Dislike" style={{ width: "20px" }} />
+                        <button className="btn btn-light" onClick={handleDislike} style={{backgroundColor: dislikeButton && "#000015"}}>
+                            <img src={dislike} alt="Dislike" style={{ width: "20px" }} /> 
+                            <span style={{color: dislikeButton && 'white'}}>{character.dislikes}</span>
                         </button>
                     </div>
                 </div>

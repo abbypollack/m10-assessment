@@ -1,14 +1,17 @@
-POST http://localhost:8080/got-character HTTP/1.1
+PUT http://localhost:8080/got-character/1 HTTP/1.1
 Content-Type: application/json
 
  {
+    "id": 1,
     "firstName": "Daenerys",
     "lastName": "Targaryen",
     "fullName": "Daenerys Targaryen",
     "title": "Mother of Dragons",
     "family": "House Targaryen",
     "image": "daenerys.jpg",
-    "imageUrl": "https://thronesapi.com/assets/images/daenerys.jpg"
+    "imageUrl": "https://thronesapi.com/assets/images/daenerys.jpg",
+    "likes": 1,
+    "dislikes": 1
   }
 
 ###

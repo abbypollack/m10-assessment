@@ -71,3 +71,5 @@ VALUES
 ('Olenna', 'Tyrell', 'Olenna Tyrell', 'Queen of Thorns', 'Tyrell', 'olenna-tyrell.jpg', 'https://thronesapi.com/assets/images/olenna-tyrell.jpg'),
 ('Qyburn', 'Grand Maester', 'Qyburn', 'Former maester of the Citadel', 'Qyburn', 'qyburn.jpg', 'https://thronesapi.com/assets/images/qyburn.jpg'),
 ('Lord', 'Bronn', 'Lord Bronn', 'Lord of Highgarden', 'Bronn', 'bronn.jpg', 'https://thronesapi.com/assets/images/bronn.jpg');
+
+select * from CharacterModel;
