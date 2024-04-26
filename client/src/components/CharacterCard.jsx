@@ -51,11 +51,11 @@ function CharacterCard({ character }) {
     }
 
     return (
-        <div className="col">
-            <div className="card h-100 bg-dark text-white">
-                <img src={character.imageUrl} className="card-img-top img-fluid uniform-img" alt={character.fullName} />
+        <div className="col char-card">
+            <div className="card h-100 text-white">
+                <img src={character.imageUrl} className="card-img-top img-fluid uniform-img char-image" alt={character.fullName} />
                 <div className="card-body">
-                    <h5 className="card-title">{character.fullName}</h5>
+                    <h6 className="card-title character-name">{character.fullName}</h6>
                     <p className="card-text">{character.family}</p>
                     <p className="card-text">{character.title}</p>
                 </div>

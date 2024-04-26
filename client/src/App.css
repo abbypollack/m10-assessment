@@ -31,6 +31,7 @@ body {
   background: url('./assets/landing.gif') no-repeat center center fixed;
   background-size: cover;
   font-family: 'CinzelDecorative', sans-serif; 
+  font-size: 12px;
 }
 
 .uniform-img {
@@ -41,4 +42,58 @@ body {
 
 .custom-dark {
   background-color: #000015;
+}
+
+
+.sorting-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-select{
+  margin-right: 10px;
+}
+
+.card-body, .card-footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.character-name{
+  font-weight: 900;
+}
+
+.char-search{
+  width: 40%;
+}
+
+.char-sort-method{
+  width: 20%;
+}
+.card{
+  border-radius: 5%;
+}
+
+.nav-container{
+  margin: 5px 20px;
+}
+
+.delete-modal{
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card{
+  background-color: #000015;
+  border: 3px black solid;
+}
+
+.card:hover {
+  border-color: darkgoldenrod;
+  transition: background-color 0.3s ease-in-out;
 }

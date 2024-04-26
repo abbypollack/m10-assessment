@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 function Nav() {
     return (
         <nav className="navbar navbar-expand-sm custom-dark navbar-dark">
-            <div className="container-fluid">
+            <div className="container-fluid nav-container">
                 <NavLink className="navbar-brand" id="home" to="/">Home</NavLink>
                 <div className="navbar-header">
                     <button className="navbar-toggler"
@@ -22,7 +22,7 @@ function Nav() {
                     </ul>
                 </div>
                 <li className="nav-item">
-                    <NavLink className="btn btn-info" id="linkAdd" to="/characters/add">Add</NavLink>
+                    <NavLink className="btn btn-light" id="linkAdd" to="/characters/add">+ Add character</NavLink>
                 </li>
             </div>
         </nav>

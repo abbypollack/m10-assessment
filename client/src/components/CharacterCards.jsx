@@ -36,18 +36,24 @@ function CharacterCards() {
     }, [sortMethod]);
 
     return (
-        <div>
-            <select onChange={(evt) => setSortMethod(evt.target.value)}>
-                <option value="likes">Sort by Likes</option>
-                <option value="alphabetically">Sort Alphabetically</option>
-                <option value="family">Sort by Family</option>
-            </select>
-            <input
-                type="text"
-                placeholder="Search by name..."
-                value={searchQuery}
-                onChange={handleSearchChange}
-            />
+        <div className="container mt-4">
+            <div className="mb-3 sorting-container">
+                <select
+                    className="form-select char-sort-method"
+                    onChange={(evt) => setSortMethod(evt.target.value)}
+                    aria-label="Sort characters">
+                    <option value="likes">Sort by Likes</option>
+                    <option value="alphabetically">Sort Alphabetically</option>
+                    <option value="family">Sort by Family</option>
+                </select>
+                <input
+                    className="form-control char-search"
+                    type="text"
+                    placeholder="Search by name..."
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                />
+            </div>
             <div className="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
                 {characters
                     .filter(character => character.fullName.toLowerCase().startsWith(searchQuery.toLowerCase()))
